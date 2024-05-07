@@ -1,6 +1,5 @@
 import g4f
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+
 from pydantic import BaseModel
 
 g4f.debug.logging = True  # mostrar mensagens de log
@@ -20,6 +19,9 @@ class Mensage(BaseModel):
     prompt: str
 
 
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI()
 
 # configuração da API mais poderosa que já existiu
@@ -34,7 +36,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"message": "Bem-vindo à minha API!"}
+    return {"message": "Bem-vindo à API mais poderosa que já existiu!"}
 
 
 @app.put("/prompt_mensage")
